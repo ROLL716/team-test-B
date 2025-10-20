@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>河野伶音 - 自己紹介</title>
+    <style>
+      :root{
+        --bg:#fff9f0;
+        --card:#ffffff;
+        --accent:#ff8a65;
+        --accent-2:#ffd54f;
+        --text:#333;
+        --muted:#666;
+      }
+      html,body{height:100%;}
+      body{
+        margin:0;
+        font-family: "Hiragino Kaku Gothic ProN", Meiryo, "Noto Sans JP", Arial, sans-serif;
+        background: linear-gradient(135deg,var(--bg),#fffefc 40%);
+        color:var(--text);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:24px;
+      }
+
+      .container{
+        width:100%;
+        max-width:980px;
+        display:grid;
+        grid-template-columns: 360px 1fr;
+        gap:28px;
+        align-items:center;
+      }
+
+      .card{
+        background:var(--card);
+        border-radius:16px;
+        box-shadow:0 8px 30px rgba(50,50,93,0.08);
+        padding:28px;
+        position:relative;
+        overflow:visible;
+      }
+
+      .avatar{
+        width:120px;height:120px;border-radius:50%;
+        background:linear-gradient(180deg,var(--accent),var(--accent-2));
+        display:flex;align-items:center;justify-content:center;
+        color:white;font-weight:700;font-size:40px;margin:0 auto 18px;
+        transform:translateY(-8px);
+        box-shadow:0 8px 20px rgba(255,138,101,0.18);
+      }
+
+      h1{margin:4px 0 8px;font-size:24px;letter-spacing:0.4px}
+      p.lead{margin:0;color:var(--muted)}
+
+      .badge{
+        display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(255,138,101,0.12), rgba(255,213,79,0.12));
+        color:var(--accent);font-weight:700;margin-top:12px;font-size:13px
+      }
+
+      .info-list{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+      .info-item{display:flex;gap:12px;align-items:center}
+      .dot{width:14px;height:14px;border-radius:4px;background:var(--accent);box-shadow:0 4px 12px rgba(255,138,101,0.14)}
+
+      /* right column */
+      .panel{
+        padding:28px;border-radius:16px;background:linear-gradient(180deg,#fff, #fffdf9);
+        box-shadow:0 8px 30px rgba(20,20,50,0.04);
+      }
+
+      .goal{font-size:18px;margin:0 0 10px}
+      .quote{color:var(--muted);margin:0 0 18px}
+
+      /* playful animation */
+      .floating {
+        position:absolute;right:-24px;top:-24px;width:84px;height:84px;border-radius:18px;
+        background:linear-gradient(135deg, rgba(255,213,79,0.95), rgba(255,138,101,0.95));
+        transform:rotate(18deg);filter:blur(6px);opacity:0.9;z-index:0;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float{
+        0%{transform:translateY(0) rotate(18deg)}
+        50%{transform:translateY(-12px) rotate(10deg)}
+        100%{transform:translateY(0) rotate(18deg)}
+      }
+
+      /* entrance animation */
+      .card, .panel{opacity:0;transform:translateY(10px);animation:enter 700ms ease forwards}
+      .panel{animation-delay:160ms}
+
+      @keyframes enter{to{opacity:1;transform:none}}
+
+      /* responsive */
+      @media (max-width:820px){
+        .container{grid-template-columns:1fr;}
+        .floating{display:none}
+      }
+
+      /* small interactive button */
+      .cta{display:inline-flex;gap:10px;align-items:center;padding:10px 14px;border-radius:999px;background:var(--accent);color:white;font-weight:700;border:none;cursor:pointer;box-shadow:0 8px 20px rgba(255,138,101,0.14)}
+      .cta:active{transform:translateY(2px)}
+
+      .sparkle{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.4);display:inline-block;margin-left:6px;opacity:0;transform:translateY(-6px);transition:all 260ms}
+      .cta:hover .sparkle{opacity:1;transform:none}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="floating" aria-hidden="true"></div>
+        <div style="position:relative;z-index:2">
+          <div class="avatar">河
+          </div>
+          <h1>河野 伶音</h1>
+          <p class="lead">明るく、聞き上手。話すのが得意です。</p>
+
+          <div class="badge">特技: お話</div>
+
+          <ul class="info-list">
+            <li class="info-item"><span class="dot" style="background:#ffd54f"></span><strong>役割</strong>&nbsp;&nbsp;<span style="color:var(--muted);margin-left:6px">チームのムードメーカー</span></li>
+            <li class="info-item"><span class="dot" style="background:#4fc3f7"></span><strong>好きなこと</strong>&nbsp;&nbsp;<span style="color:var(--muted);margin-left:6px">会話・アイデアを引き出すこと</span></li>
+          </ul>
+
+          <div style="margin-top:20px;display:flex;gap:12px;align-items:center">
+            <button class="cta" id="introBtn">もっと見る<span class="sparkle"></span></button>
+            <a href="#goal" style="color:var(--accent);text-decoration:none;font-weight:700">目標へ移動 →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel card" id="goal">
+        <h2 class="goal">チーム開発に対する意気込み</h2>
+        <p class="quote">余計なことはしない — シンプルに、必要なことを確実に。</p>
+
+        <p>チームでの開発では、無駄な作業や過干渉を避け、必要なサポートとコミュニケーションに集中します。短く強い一言で表すなら:</p>
+        <blockquote style="margin:12px 0;padding:12px;border-left:4px solid var(--accent);background:rgba(255,138,101,0.04);">余計なことはしない — 必要な時に、必要なだけ。</blockquote>
+
+        <p style="margin-top:8px">簡単なインタラクション:</p>
+        <ul>
+          <li>会話でアイデアを引き出す</li>
+          <li>依頼された範囲を丁寧に実行</li>
+          <li>状況を見て、適切に連携</li>
+        </ul>
+
+        <div style="margin-top:18px;display:flex;gap:10px;align-items:center">
+          <button class="cta" id="contactBtn">連絡する</button>
+          <span style="color:var(--muted);font-size:13px">（サンプルページのためリンクは動作しません）</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 小さな対話的要素: ボタンで軽い通知を表示
+      document.getElementById('introBtn').addEventListener('click', function(){
+        const el = document.createElement('div');
+        el.textContent = 'こんにちは！私は河野伶音。話すのが得意です。';
+        Object.assign(el.style, {
+          position:'fixed',left:'50%',top:'12%',transform:'translateX(-50%)',
+          background:'#fff',padding:'12px 16px',borderRadius:'10px',boxShadow:'0 8px 24px rgba(0,0,0,0.12)',zIndex:9999
+        });
+        document.body.appendChild(el);
+        setTimeout(()=>{el.style.opacity='0';el.style.transition='opacity 500ms';},2200);
+        setTimeout(()=>{el.remove();},2800);
+      });
+
+      document.getElementById('contactBtn').addEventListener('click', function(){
+        alert('連絡先: サンプルページのためここでは表示されません。');
+      });
+    </script>
+  </body>
+</html>
